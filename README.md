@@ -16,6 +16,11 @@ A hands-on, code-first repository tracking my deep learning implementation journ
 - **Dataset:** CIFAR-10
 - **Model:** Pre-trained ResNet-18 (Feature Extractor frozen, replaced `model.fc`)
 - **Test Accuracy:** 76.91%
+- ### 08b. Advanced Fine-Tuning & Data Augmentation
+- **File:** `08b_fine_tuning_augmentation.py`
+- **Dataset:** CIFAR-10
+- **Techniques:** Unfrozen `layer4`, Differential Learning Rates, Random Horizontal Flips & Crops
+- **Test Accuracy:** 97.09% (Jump from 76.91%)
 ## Setup & Environment
 - PyTorch 2.14.0+cu130
 - Python 3.10+
