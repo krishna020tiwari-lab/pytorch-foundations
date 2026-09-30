@@ -11,6 +11,11 @@ A hands-on, code-first repository tracking my deep learning implementation journ
 5. **`05_multi_layer_perceptron.py`**: Non-linear function approximation ($y = x^2$) using Multi-Layer Perceptrons and `ReLU` activation functions.
 6. **`06_dataset_dataloader.py`**: Custom `Dataset` and `DataLoader` pipelines for mini-batch stochastic gradient descent.
 7. 07_convolutional_neural_network.py: Built a Convolutional Neural Network (CNN) using nn.Conv2d and nn.MaxPool2d for spatial feature extraction on MNIST images, achieving 98.54% test accuracy with a dedicated evaluation loop (model.eval(), torch.no_grad())
+08. Transfer Learning with ResNet-18
+- **File:** `08_transfer_learning.py`
+- **Dataset:** CIFAR-10
+- **Model:** Pre-trained ResNet-18 (Feature Extractor frozen, replaced `model.fc`)
+- **Test Accuracy:** 76.91%
 ## Setup & Environment
 - PyTorch 2.14.0+cu130
 - Python 3.10+
