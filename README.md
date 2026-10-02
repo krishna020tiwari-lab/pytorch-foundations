@@ -26,6 +26,11 @@ A hands-on, code-first repository tracking my deep learning implementation journ
 - **Dataset:** MNIST (Treated as $28 \times 28$ sequential rows)
 - **Architecture:** 2-Layer LSTM + Linear Classification Head
 - **Test Accuracy:** 97.96%
+- ## 10. Text Classification with Word Embeddings
+- **File:** `10_text_classification_embeddings.py`
+- **Dataset:** Synthetic Sentiment Analysis Corpus
+- **Architecture:** `nn.Embedding` + LSTM + Linear Classifier
+- **Key Concept:** Learned dense semantic vector representations (`embed_dim`) from discrete token IDs to feed sequential LSTM states.
 ## Setup & Environment
 - PyTorch 2.14.0+cu130
 - Python 3.10+
