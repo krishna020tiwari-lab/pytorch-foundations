@@ -31,7 +31,8 @@ A hands-on, code-first repository tracking my deep learning implementation journ
 - **Dataset:** Synthetic Sentiment Analysis Corpus
 - **Architecture:** `nn.Embedding` + LSTM + Linear Classifier
 - **Key Concept:** Learned dense semantic vector representations (`embed_dim`) from discrete token IDs to feed sequential LSTM states.
-- ## 10b 🎯 Multi-Class Architecture: Scaled from 2 to 3 classes using nn.CrossEntropyLoss().
+- ## 10b 🎯 Multi-Class Architecture:
+- Scaled from 2 to 3 classes using nn.CrossEntropyLoss().
 🔄 Bidirectional Dynamics: Processed text in both directions and concatenated dual states: (batch_size, hidden_dim * 2).
 ## Setup & Environment
 - PyTorch 2.14.0+cu130
