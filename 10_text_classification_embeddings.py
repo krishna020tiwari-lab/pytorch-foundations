@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from networkx.algorithms import similarity
 from torch.nn import CrossEntropyLoss
 from torch.utils.data import Dataset , DataLoader
 
@@ -110,3 +111,25 @@ with torch.no_grad():
         label_str = "Positive 😊" if prediction == 1 else "Negative 😞"
         print(f"Sentence: '{text}' --> Prediction: {label_str}")
 
+
+print("\n--- Challenge 1: Inspecting Learned Word Vectors")
+
+embeddings_weights = model.embedding.weight.data
+
+print(f"Embedding Weight Matrix Shape: {embeddings_weights.shape}")
+
+idx_brilliant = vocab.get("brilliant")
+idx_awesome = vocab.get("awesome")
+
+vector_brilliant = embeddings_weights[idx_brilliant]
+vector_awesome = embeddings_weights[idx_awesome]
+
+print(f"\nWord : 'brilliant' (Index {idx_brilliant})")
+print(f"Vector (size {len(vector_brilliant)}),:\n{vector_brilliant}")
+
+print(f"\nWord : 'awesome' (Index {idx_awesome})")
+print(f"Vector (size {len(vector_awesome)}),:\n{vector_awesome}")
+
+similarity = torch.cosine_similarity(vector_brilliant.unsqueeze(0),vector_awesome.unsqueeze(0)).item()
+
+print(f"Cosine Similarity Between 'brilliant' and 'awesome': {similarity:.4f}")
