@@ -38,3 +38,50 @@ A hands-on, code-first repository tracking my deep learning implementation journ
 - PyTorch 2.14.0+cu130
 - Python 3.10+
 - CUDA Enabled GPU
+
+- # 🤖 Stage 5: Transformers & Contextual Embeddings (Hugging Face)
+
+This section covers the transition from word-level static lookup tables (`nn.Embedding`) to subword tokenization and contextual representations using pretrained Transformer models (BERT).
+
+---
+
+## 📌 Key Concepts Covered
+
+1. ✂️ **Subword Tokenization (WordPiece / BPE):**
+   * Eliminates the Out-Of-Vocabulary (`<UNK>`) problem by splitting rare or complex words into known subword units (e.g., `"unfriendly"` $\rightarrow$ `['un', '##fr', '##ien', '##dly']`).
+   * The `##` prefix denotes a continuation subword token.
+
+2. 🏷️ **Special Control Tokens:**
+   * `[CLS]` (ID: `101`): Sequence-level classification token added at the beginning.
+   * `[SEP]` (ID: `102`): Sentence boundary separation token added at the end.
+
+3. 🧠 **Static vs. Contextual Embeddings:**
+   * **Static (`nn.Embedding`):** Maps every unique word to a fixed, unchanging vector.
+   * **Contextual (BERT):** Dynamically alters a token's vector based on its surrounding context via self-attention (e.g., `"bank"` in financial vs. river context yielded a cosine similarity of `0.6987`).
+
+---
+
+## 📐 Tensor Shape & Architecture
+
+| Script | Model / Tokenizer | Input Shape | Output / Result |
+| :--- | :--- | :--- | :--- |
+| `11_subword_tokenization.py` | `bert-base-uncased` | Raw string | Subword tokens & Special Token IDs |
+| `12_bert_embeddings.py` | `BertModel` | `(batch_size=2, seq_len=8)` | `last_hidden_state`: `(2, 8, 768)` |
+
+---
+
+## 🛠️ Scripts Overview
+
+* 📄 `11_subword_tokenization.py`: Inspects subword token splitting, prefix continuation symbols (`##`), and automatic control token encoding.
+* 📄 `12_bert_embeddings.py`: Loads `bert-base-uncased` from Hugging Face, extracts 768-dimensional token hidden states, and calculates contextual cosine similarity across different sentence contexts.
+
+---
+
+## 🚀 How to Run
+
+```bash
+# Run Subword Tokenization Demo
+python Pytorch_Foundation/11_subword_tokenization.py
+
+# Run BERT Contextual Embedding Extraction
+python Pytorch_Foundation/12_bert_embeddings.py
