@@ -74,9 +74,7 @@ This section covers the transition from word-level static lookup tables (`nn.Emb
 
 * 📄 `11_subword_tokenization.py`: Inspects subword token splitting, prefix continuation symbols (`##`), and automatic control token encoding.
 * 📄 `12_bert_embeddings.py`: Loads `bert-base-uncased` from Hugging Face, extracts 768-dimensional token hidden states, and calculates contextual cosine similarity across different sentence contexts.
-
 ---
-
 ## 🚀 How to Run
 
 ```bash
@@ -85,3 +83,33 @@ python Pytorch_Foundation/11_subword_tokenization.py
 
 # Run BERT Contextual Embedding Extraction
 python Pytorch_Foundation/12_bert_embeddings.py
+
+# 🎯 Script 13: BERT Fine-Tuning for Sentiment Classification
+
+Fine-tunes `bert-base-uncased` for 3-class sentiment analysis (`Negative`, `Neutral`, `Positive`) using transfer learning, backbone freezing, and probabilistic inference.
+
+---
+
+## 📌 Key Concepts
+
+* 🔒 **Frozen Backbone:** Freezes BERT's 110M parameters (`requires_grad = False`) to preserve pretrained representations and prevent overfitting.
+* 🎯 **Linear Head Training:** Only trains the top `model.classifier` layer ($768 \rightarrow 3$ classes).
+* 📊 **Probabilistic Inference:** Transforms raw output logits into normalized class confidence scores using `Softmax`.
+
+---
+
+## 📐 Data Flow
+
+| Stage | Tensor Shape | Description |
+| :--- | :--- | :--- |
+| **Input** | `(batch_size, 16)` | Token IDs & Attention Masks |
+| **Backbone** | `(batch_size, 16, 768)` | Frozen BERT hidden states |
+| **Logits** | `(batch_size, 3)` | Raw classification scores |
+| **Output** | `(batch_size, 3)` | Softmax class probabilities |
+
+---
+
+## 🚀 How to Run
+
+```bash
+python Pytorch_Foundation/13_bert_fine_tuning.py
