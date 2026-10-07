@@ -113,3 +113,41 @@ Fine-tunes `bert-base-uncased` for 3-class sentiment analysis (`Negative`, `Neut
 
 ```bash
 python Pytorch_Foundation/13_bert_fine_tuning.py
+
+# 💾 Stage 6: Model Persistence & Deployment
+
+This stage covers saving, loading, and exporting PyTorch models for deployment and production workflows.
+
+---
+
+## 📌 Script 14: PyTorch Model Persistence (`state_dict`)
+
+This script demonstrates how to serialize and deserialize model parameters using PyTorch's recommended `state_dict` approach.
+
+---
+
+### 🔑 Key Concepts Covered
+
+* 🗂️ **`state_dict` Representation:** Maps every layer parameter (weights and biases) to a learnable `torch.Tensor` dictionary.
+* 💾 **`torch.save()` & `torch.load()`:** Serializes only the model parameters to disk (`.pth` format) rather than relying on brittle Python `pickle` objects.
+* 🔄 **Parameter Restoration:** Restores saved weights into a freshly instantiated model using `model.load_state_dict()`.
+* 🔒 **`model.eval()` Mode:** Disables training-specific behaviors like Dropout and Batch Normalization for consistent inference.
+
+---
+
+### 📐 Workflow Summary
+
+| Stage | Operation | Function / Method | Output |
+| :--- | :--- | :--- | :--- |
+| **1. Save** | Export weights | `torch.save(model.state_dict(), path)` | Saved `.pth` weight file |
+| **2. Instantiate** | Create blank model | `model = SimpleClassifier()` | Uninitialized target architecture |
+| **3. Load** | Fetch dictionary | `state_dict = torch.load(path)` | Python dictionary of weight tensors |
+| **4. Inject** | Load parameters | `model.load_state_dict(state_dict)` | Fully restored, functional model |
+
+---
+
+### 🚀 How to Run
+
+```bash
+# Run Model Saving & Loading Verification Script
+python Pytorch_Foundation/14_model_saving_loading.py
