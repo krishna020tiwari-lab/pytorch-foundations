@@ -148,6 +148,27 @@ This script demonstrates how to serialize and deserialize model parameters using
 
 ### 🚀 How to Run
 
+
+
 ```bash
+
+## 📌 Script 15: Cross-Platform Model Export (ONNX)
+
+Exports a PyTorch `nn.Module` into Open Neural Network Exchange (ONNX) format for accelerated runtime deployment across C++, JavaScript, and mobile platforms.
+
+---
+
+### 🔑 Key Concepts Covered
+
+* 🖋️ **Graph Tracing:** Passes a dummy tensor through `torch.onnx.export` to record execution paths.
+* 🌐 **Framework Independence:** Generates a standalone `.onnx` model file capable of running inside ONNX Runtime.
+* ⚙️ **Modern Opset Standard:** Configures target operator set versions (`opset_version=18`) for compatibility with current PyTorch exporters.
+
+---
+
+### 🚀 How to Run
+
+```bash
+python Pytorch_Foundation/15_onnx_export.py
 # Run Model Saving & Loading Verification Script
 python Pytorch_Foundation/14_model_saving_loading.py
