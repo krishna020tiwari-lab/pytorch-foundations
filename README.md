@@ -172,3 +172,22 @@ Exports a PyTorch `nn.Module` into Open Neural Network Exchange (ONNX) format fo
 python Pytorch_Foundation/15_onnx_export.py
 # Run Model Saving & Loading Verification Script
 python Pytorch_Foundation/14_model_saving_loading.py
+
+## 📌 Script 16: Model Serving API (FastAPI + ONNX Runtime)
+
+Provides a lightweight, production-ready REST API that serves an exported ONNX model for real-time predictions.
+
+---
+
+### 🔑 Key Concepts Covered
+
+* ⚡ **ONNX Runtime Engine:** Executes serialized model graphs (`.onnx`) with minimal memory overhead.
+* 🛡️ **Pydantic Validation:** Enforces strict array dimensions and typing on incoming JSON payloads.
+* 🌐 **Interactive Documentation:** Automatically generates Swagger UI (`/docs`) for live testing.
+
+---
+
+### 🚀 How to Run
+
+```bash
+uvicorn Pytorch_Foundation.16_fastapi_onnx_service:app --reload
