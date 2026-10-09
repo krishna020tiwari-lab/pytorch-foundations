@@ -191,3 +191,25 @@ Provides a lightweight, production-ready REST API that serves an exported ONNX m
 
 ```bash
 uvicorn Pytorch_Foundation.16_fastapi_onnx_service:app --reload
+
+# 🚀 Deep Learning, NLP & MLOps Roadmap
+
+A comprehensive, hands-on repository tracking the journey from fundamental PyTorch neural networks and Computer Vision to NLP Transformers (BERT), ONNX model optimization, FastAPI REST microservices, and Docker containerization.
+
+---
+
+## 🗺️ Roadmap Architecture
+
+```text
+┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
+│ 1. PyTorch Foundations  │ ──► │ 2. Vision & Sequence    │ ──► │ 3. NLP & Transformers   │
+│    Tensors, Autograd,   │     │    CNNs, ResNet,        │     │    Subwords, Embeddings,│
+│    MLP, DataLoaders     │     │    Transfer Learning    │     │    BERT Fine-tuning     │
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
+                                                                             │
+                                                                             ▼
+┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
+│ 6. Docker Deployment    │ ◄── │ 5. REST API Microservice│ ◄── │ 4. Model Optimization   │
+│    Containerization &   │     │    FastAPI, Pydantic,   │     │    ONNX Export,         │
+│    Port Mapping         │     │    ONNX Runtime         │     │    Serialization        │
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
